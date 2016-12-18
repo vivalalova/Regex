@@ -37,18 +37,15 @@ extension String
 
     func convertRange (_ range: Range<Int>) -> Range<String.Index> {
         let start = self.characters.index(self.startIndex, offsetBy: range.lowerBound)
-
-//        let end   = start.advancedBy(range.upperBound - range.startIndex)
-//        return (start ..< end)
-        return "String".startIndex ..< "String".endIndex
+        let end = self.characters.index(start, offsetBy: range.upperBound - range.lowerBound)
+        return start ..< end
     }
 
     func convertRange (_ nsrange:NSRange) -> Range<String.Index> {
         let start = self.characters.index(self.startIndex, offsetBy: nsrange.location)
-//        let end   = start.advancedBy(nsrange.length)
-//        return (start ..< end)
-        
-        return "String".startIndex ..< "String".endIndex
+        let end = self.characters.index(start, offsetBy: nsrange.length)
+        return start ..< end
+
     }
 }
 
