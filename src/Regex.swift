@@ -45,7 +45,6 @@ extension String
         let start = self.characters.index(self.startIndex, offsetBy: nsrange.location)
         let end = self.characters.index(start, offsetBy: nsrange.length)
         return start ..< end
-
     }
 }
 
